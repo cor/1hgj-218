@@ -8,6 +8,7 @@ public class LaserSpawner : MonoBehaviour
 
     private float nextActionTime = 0.0f;
     public float period = 0.5f;
+    public GameObject scoreKeeper;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class LaserSpawner : MonoBehaviour
             GameObject laserClone = Instantiate(laser, transform);
 
             laserClone.transform.Rotate(0, 0, Random.Range(0, 360));
+            scoreKeeper.GetComponent<ScoreKeeper>().AddPoint();
         }
     }
 }
